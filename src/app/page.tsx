@@ -59,6 +59,33 @@ const hardTruths = [
   },
 ];
 
+const walkthrough = [
+  {
+    step: "01",
+    title: "One task at a time",
+    description:
+      "No overwhelming walls of checkboxes. Each step appears alone with context, tips, and examples so you can give it your full attention.",
+  },
+  {
+    step: "02",
+    title: "Write, don't just check",
+    description:
+      "Every task has a notes field. You're not just marking things done — you're documenting decisions that drive everything downstream.",
+  },
+  {
+    step: "03",
+    title: "Gates keep you honest",
+    description:
+      "You can't skip ahead. Each phase unlocks only when the previous one is 100% complete. No cutting corners.",
+  },
+  {
+    step: "04",
+    title: "Pick up where you left off",
+    description:
+      "Your progress saves automatically. Close the browser, come back tomorrow — everything is exactly where you left it.",
+  },
+];
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-dark">
@@ -79,9 +106,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/95 to-dark" />
-        {/* Subtle grid pattern */}
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -100,15 +125,15 @@ export default function Home() {
             <span className="text-gold">a Day.</span>
           </h1>
           <p className="text-xl md:text-2xl text-text-muted max-w-2xl mx-auto mb-12 leading-relaxed">
-            A guided checklist that walks you from idea to live product.
-            Front-load the decisions. Let AI handle the rest.
+            A guided walkthrough that takes you from idea to live product — one step at a time.
+            No overwhelm. No skipping ahead. Just ship.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/checklist"
               className="bg-gold text-dark px-8 py-4 text-sm font-semibold tracking-wider uppercase hover:bg-gold-light transition-colors w-full sm:w-auto"
             >
-              Start the Checklist
+              Start the Walkthrough
             </Link>
             <a
               href="#how-it-works"
@@ -118,7 +143,6 @@ export default function Home() {
             </a>
           </div>
         </div>
-        {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted">
           <span className="text-xs uppercase tracking-widest">Scroll</span>
           <div className="w-px h-8 bg-gradient-to-b from-text-muted to-transparent" />
@@ -143,8 +167,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* How the Walkthrough Works */}
       <section id="how-it-works" className="py-24 bg-dark">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-gold uppercase tracking-[0.2em] text-xs mb-4">
+              The Experience
+            </p>
+            <h2 className="font-display text-4xl md:text-5xl text-white">
+              Not a checklist. A guide.
+            </h2>
+            <p className="text-text-muted mt-4 text-lg max-w-2xl mx-auto">
+              V2 walks you through each task one at a time, with tips, examples, and context for every decision.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {walkthrough.map((item) => (
+              <div
+                key={item.step}
+                className="border border-dark-border p-8 group hover:border-gold/30 transition-colors"
+              >
+                <span className="text-gold font-display text-3xl opacity-40 group-hover:opacity-100 transition-opacity">
+                  {item.step}
+                </span>
+                <h3 className="text-white font-semibold text-lg mt-4 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-text-muted text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Four Phases */}
+      <section className="py-24 bg-dark-secondary">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-gold uppercase tracking-[0.2em] text-xs mb-4">
@@ -202,7 +262,7 @@ export default function Home() {
       </section>
 
       {/* Quality Gates */}
-      <section className="py-24 bg-dark-secondary">
+      <section className="py-24 bg-dark">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-gold uppercase tracking-[0.2em] text-xs mb-4">
@@ -269,7 +329,7 @@ export default function Home() {
       </section>
 
       {/* Hard Truths */}
-      <section className="py-24 bg-dark">
+      <section className="py-24 bg-dark-secondary">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-gold uppercase tracking-[0.2em] text-xs mb-4">
@@ -306,14 +366,14 @@ export default function Home() {
       </section>
 
       {/* What This Is NOT */}
-      <section className="py-24 bg-dark-secondary">
+      <section className="py-24 bg-dark">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-display text-3xl md:text-4xl text-white mb-12 text-center">
             What this is <span className="text-gold">not</span>.
           </h2>
           <div className="space-y-4">
             {[
-              "Not a SaaS platform — it's a structured, opinionated checklist",
+              "Not a SaaS platform — it's a structured, opinionated walkthrough",
               'Not time-bound — "in a day" is aspirational, not a constraint',
               "Not a replacement for talking to users — it gets you to the point where you CAN talk to users, with a real thing",
               "Not a guarantee — it's a process for generating signal fast",
@@ -331,7 +391,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-dark relative">
+      <section className="py-32 bg-dark-secondary relative">
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -347,20 +407,19 @@ export default function Home() {
             <span className="text-gold">Start shipping.</span>
           </h2>
           <p className="text-text-muted text-lg mb-10 max-w-xl mx-auto">
-            32 tasks. 4 phases. 4 quality gates. Everything you need to go from
-            idea to live product — with nothing you don&rsquo;t.
+            32 tasks. 4 phases. 4 quality gates. One step at a time — with tips, examples, and guardrails for every decision.
           </p>
           <Link
             href="/checklist"
             className="inline-block bg-gold text-dark px-10 py-5 text-sm font-semibold tracking-wider uppercase hover:bg-gold-light transition-colors"
           >
-            Start the Checklist
+            Start the Walkthrough
           </Link>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-dark-border py-8">
+      <footer className="border-t border-dark-border py-8 bg-dark">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-gold font-display text-sm">
             [ Launch in a Day ]
